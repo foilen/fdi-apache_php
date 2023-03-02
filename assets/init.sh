@@ -97,7 +97,7 @@ service apache2 start
 if [ -n "$CERTBOT_EMAIL" ] && [ -n "$CERTBOT_DOMAINS" ]; then
   echo "Configure Let's Encrypt"
 
-  certbot --non-interactive --agree-tos --email $CERTBOT_EMAIL --apache --domains $CERTBOT_DOMAINS
+  certbot --non-interactive --agree-tos --email $CERTBOT_EMAIL --apache --domains $CERTBOT_DOMAINS --expand
 fi
 
 APP_ID=$(cat /var/run/apache2/apache2.pid)
