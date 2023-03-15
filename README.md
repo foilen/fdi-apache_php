@@ -28,12 +28,9 @@ cat > _test/sites-available/localhost-1.conf << _EOF
 </VirtualHost>
 _EOF
 
-cat > _test/www-1/index.html << _EOF
-<html>
-<body>
-Site #1
-</body>
-</html>
+cat > _test/www-1/index.php << _EOF
+<?php
+phpinfo();
 _EOF
 
 ln -s ../sites-available/localhost-1.conf _test/sites-enabled/
