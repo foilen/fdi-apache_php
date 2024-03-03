@@ -32,6 +32,9 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
     zip unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# PHP Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Sending emails easily
 RUN wget https://deploy.foilen.com/sendmail-to-msmtp/sendmail-to-msmtp_1.1.1_amd64.deb && \
   dpkg -i sendmail-to-msmtp_1.1.1_amd64.deb && \
