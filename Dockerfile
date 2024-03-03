@@ -41,7 +41,7 @@ RUN wget https://deploy.foilen.com/sendmail-to-msmtp/sendmail-to-msmtp_1.1.1_amd
 COPY assets/policy.xml /etc/ImageMagick-6/policy.xml
 
 # NodeJS
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash -
 RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
     gcc g++ make \
     nodejs \
