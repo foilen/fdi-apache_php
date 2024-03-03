@@ -40,6 +40,13 @@ RUN wget https://deploy.foilen.com/sendmail-to-msmtp/sendmail-to-msmtp_1.1.1_amd
 # ImageMagick can create PDF
 COPY assets/policy.xml /etc/ImageMagick-6/policy.xml
 
+# NodeJS
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
+    gcc g++ make \
+    nodejs \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Init script
 COPY assets/init.sh /
 RUN chmod u+x /init.sh
