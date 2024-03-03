@@ -18,7 +18,7 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
 RUN a2enmod fcgid headers proxy proxy_fcgi proxy_http rewrite ssl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) \
-      gd mbstring opcache pdo xml zip \
+      bcmath gd mbstring opcache pdo xml zip \
       mysqli pdo_mysql \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
