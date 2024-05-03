@@ -1,4 +1,4 @@
-FROM php:8.2.16-apache
+FROM php:8.2.18-apache
 
 # Let's encrypt
 RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
@@ -15,7 +15,7 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
     libxml2-dev \
     libzip-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN a2enmod fcgid headers proxy proxy_fcgi proxy_http rewrite ssl
+RUN a2enmod fcgid headers http2 proxy proxy_fcgi proxy_http rewrite ssl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) \
       gd mbstring opcache pdo xml zip \
