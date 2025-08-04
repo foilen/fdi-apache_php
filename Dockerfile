@@ -1,4 +1,4 @@
-FROM php:8.2.27-apache
+FROM php:8.4.10-apache
 
 # Let's encrypt
 RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
@@ -33,7 +33,7 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Sending emails easily
-RUN wget https://deploy.foilen.com/sendmail-to-msmtp/sendmail-to-msmtp_1.1.1_amd64.deb && \
+RUN wget https://deploy.foilen.com/sendmail-to-msmtp/1.1.1/sendmail-to-msmtp_1.1.1_amd64.deb && \
   dpkg -i sendmail-to-msmtp_1.1.1_amd64.deb && \
   rm sendmail-to-msmtp_1.1.1_amd64.deb
 

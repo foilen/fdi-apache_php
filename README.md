@@ -46,7 +46,7 @@ docker run -ti --rm \
     --name allsites \
     fdi-apache_php:main-SNAPSHOT
 
-curl http://localhost-1.foilen.com
+curl http://127.0.0.1/
 
 ```
 
@@ -118,6 +118,6 @@ docker run -d --restart always \
     -e CERTBOT_EMAIL=test@foilen.com \
     -e CERTBOT_DOMAINS=test-wp.foilen.com \
     --name allsites \
-    foilen/fdi-apache_php:0.0.2 && \
+    foilen/fdi-apache_php:8.4.10-1 && \
 docker logs -f allsites
 ```
