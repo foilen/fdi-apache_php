@@ -118,6 +118,6 @@ docker run -d --restart always \
     -e CERTBOT_EMAIL=test@foilen.com \
     -e CERTBOT_DOMAINS=test-wp.foilen.com \
     --name allsites \
-    foilen/fdi-apache_php:8.4.27-1 && \
+    foilen/fdi-apache_php:8.5.12-1 && \
 docker logs -f allsites
 ```
